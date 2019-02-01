@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styl.css"/>
+    <title>Brython strSquarificator</title>
+  </head>
+</html>
+<body onload="brython(1)">
+  <div class="grid"><img src="https://pbs.twimg.com/profile_images/2999887802/5edb1994a26d9fe1a8d6cf4d316a682c_400x400.png" alt="logo"/>
+    <input v-model="inputForm" id="inputForm" type="text" placeholder="Waiting for input"/><br/>
+    <button type="submit" id="buttonSubmit">Submit</button><br/>
+    <textarea v-model="textareaForm" id="textareaForm" rows="20" cols="40" wrap="soft" readonly="readonly"></textarea>
+  </div>
+</body>
+<script type="text/python">
+  from browser import document, html
+  def show_values(event):
+    input = document["inputForm"].value
+  
+    def str_sqr(str_arg):
+        str_list = list(str_arg.upper())
+        tmp_list = list()
+        for i in range(len(str_list)):
+            pop_first = str_list[i:]
+            get_poped = str_list[:i]
+            shift_right = pop_first + get_poped
+            shift_right = ' '.join(shift_right)
+            shift_right += '\n'
+            tmp_list.append(shift_right)
+        return tmp_list
+  
+    document["textareaForm"].clear()
+    document["textareaForm"] <= str_sqr(input)
+  document["buttonSubmit"].bind("click", show_values)
+  
+  
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.0/brython.min.js"></script>
