@@ -2,8 +2,8 @@
 
 ## cli
 
-![screenshot](./docs/cli.png)
+![screenshot](./img/image-1.png)
 
 ## [www](https://chiboreache.github.io/strSquarificator/)
 
-![screenshot](./docs/web.png)
+![screenshot](./img/image-2.png)
